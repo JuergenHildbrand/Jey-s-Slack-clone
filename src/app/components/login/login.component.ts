@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.toast.observe({
           success: 'Logged in successfully',
           loading: 'Logging in...',
-          error: 'There was an error'
+          error: 'Email or password is incorrect'
         })
       )
       .subscribe(() => {

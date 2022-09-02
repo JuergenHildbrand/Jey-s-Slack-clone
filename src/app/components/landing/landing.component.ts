@@ -11,6 +11,7 @@ export class LandingComponent implements OnInit {
 
   user$ = this.authService.currentUser$;
 
+
   constructor(
     public appComp: AppComponent,
     public authService: AuthService

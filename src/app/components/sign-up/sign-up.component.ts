@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
 
 
   constructor(
-    private autService: AuthService,
+    private authService: AuthService,
     private toast: HotToastService,
     private router: Router
   ) { }
@@ -60,18 +60,18 @@ export class SignUpComponent implements OnInit {
   }
 
   submit() {
-    if (this.signUpForm.valid) return;
+    if (!this.signUpForm.valid) return;
     const { name, email, password } = this.signUpForm.value;
-    this.autService.signUp(name, email, password).pipe(
+    this.authService.signUp(name, email, password).pipe(
       this.toast.observe({
         success: 'Congrats! You are signed up',
         loading: 'Signing in...',
-        error: ({ message }) => `${ message }`
+        error: ({ message }) => `${message}`
       })
     )
-    .subscribe(() => {
-      this.router.navigate(['/landing']);
-    });
+      .subscribe(() => {
+        this.router.navigate(['/landing']);
+      });
   }
 
 }

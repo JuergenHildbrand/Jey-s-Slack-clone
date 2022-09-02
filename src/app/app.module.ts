@@ -22,6 +22,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 
 
@@ -43,6 +45,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatMenuModule,
 
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

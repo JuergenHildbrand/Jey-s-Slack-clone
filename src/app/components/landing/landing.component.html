@@ -1,10 +1,14 @@
 <mat-toolbar>
     Jey's Slack-clone
     <div class="flex">
-        <div *ngIf="user$ | async as user">{{ user.displayName }}</div>
-        <button mat-button (click)="logout()">
-            <mat-icon>logout</mat-icon>
-            Logout
+        <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>account_circle</mat-icon>
+            User
+            <mat-icon>expand_more</mat-icon>
         </button>
     </div>
 </mat-toolbar>
+
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>

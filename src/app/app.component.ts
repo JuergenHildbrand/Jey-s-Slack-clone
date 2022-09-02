@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from './service/auth.service';
 
 @Component({
@@ -10,13 +11,21 @@ import { AuthService } from './service/auth.service';
 export class AppComponent {
 
   constructor(
-    public authServise: AuthService,
-    private router: Router,  
+    public authService: AuthService,
+    private router: Router,
+    private toast: HotToastService
   ) {}
 
   logout() {
-    this.authServise
+    this.authService
       .logout()
+      .pipe(
+        this.toast.observe({
+          success: 'You are logged out',
+          loading: 'Logging out...',
+          error: ({ message }) => `${message}`
+        })
+      )
       .subscribe(() => {
         this.router.navigate(['']);
       });
