@@ -1,7 +1,10 @@
 <mat-toolbar>
     Jey's Slack-clone
-    <button mat-button routerLink="login">
-      <mat-icon>login</mat-icon>
-      Login
-    </button>
-  </mat-toolbar>
+    <div class="flex">
+        <div *ngIf="user$ | async as user">{{ user.displayName }}</div>
+        <button mat-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+    </div>
+</mat-toolbar>

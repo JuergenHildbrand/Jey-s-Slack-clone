@@ -1,0 +1,33 @@
+.content {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(24, 26, 27);
+    color: rgb(232, 230, 227);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .signInTitle {
+        font-size: 48px;
+        line-height: normal;
+        color: rgb(232, 230, 227);
+    }
+
+    .formContainer {
+        display: block;
+        max-width: 260px;
+
+        mat-form-field {
+            width: 100% !important;
+            
+            mat-label {
+                background-color: rgb(24, 26, 27) !important;
+            }
+        }
+
+        a {
+            margin-left: 8px;
+            color: rgb(64, 80, 181);
+        }
+    }
+}

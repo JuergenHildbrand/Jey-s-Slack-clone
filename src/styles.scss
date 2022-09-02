@@ -9,10 +9,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 
-.mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: rgb(24, 26, 27) !important;
-}
+// .mat-focused .mat-form-field-label {
+//     /*change color of label*/
+//     color: rgb(24, 26, 27) !important;
+// }
 
 .mat-form-field-underline {
     /*change color of underline*/
@@ -25,9 +25,12 @@ body {
 }
 
 mat-label {
-    color: rgb(64, 80, 181) !important;
+    color: rgb(232, 230, 227) !important;
 }
 
+.flex {
+    display: flex;
+}
 
 .center {
     display: flex;
@@ -36,6 +39,11 @@ mat-label {
 
 .txtCenter {
     text-align: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
 }
 
 .mt16 {
@@ -50,8 +58,5 @@ mat-label {
     margin-top: 32px;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-}
+
 

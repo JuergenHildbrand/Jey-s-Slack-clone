@@ -1,1 +1,45 @@
-<p>sign-up works!</p>
+<div class="content column">
+    <h1 class="signInTitle txtCenter">Slack-clone</h1>
+    <h2>Sign Up a New User</h2>
+    <div class="formContainer mt16">
+        <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="name?.errors?.['required']">
+                    Name is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email address</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="email?.errors?.['required']">
+                    Email address is required
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['email']">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput formControlName="confirmPassword" type="password">
+                <mat-error *ngIf="confirmPassword?.errors?.['required']">
+                    Confirm Password is required
+                </mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+                Password should match
+            </mat-error>
+            <div class="column txtCenter mt24">
+                <button mat-raised-button color="primary" type="submit">Sign In!</button>
+            </div>
+        </form>
+    </div>
+</div>

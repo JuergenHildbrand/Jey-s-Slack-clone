@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'jeys-slack-clone';
+
+  constructor(
+    public authServise: AuthService,
+    private router: Router,  
+  ) {}
+
+  logout() {
+    this.authServise
+      .logout()
+      .subscribe(() => {
+        this.router.navigate(['']);
+      });
+  }
 }
