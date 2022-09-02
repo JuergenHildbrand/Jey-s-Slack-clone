@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jey-s-slack-clone-92d87": {
+      "hosting": {
+        "jeys-slack-clone": [
+          "jey-s-slack-clone-92d87"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jey-s-slack-clone-92d87"
+  }
+}

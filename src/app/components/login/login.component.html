@@ -1,0 +1,28 @@
+<div class="content column">
+    <h1 class="loginTitle txtCenter">Welcome<br>to my<br>Slack-clone</h1>
+    <div class="formContainer mt16">
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+            <mat-form-field>
+                <mat-label>Email address</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="email?.errors?.['required']">
+                    Email address is required
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['email']">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+            <div class="column txtCenter mt24">
+                <button mat-raised-button color="primary" type="submit">Login</button>
+                <span class="mt16">Are u new here? <a routerLink="sign-up">Sign Up!</a></span>
+            </div>
+        </form>
+    </div>
+</div>
