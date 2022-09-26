@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/service/auth.service';
+import { DialogProfileComponent } from '../dialog-profile/dialog-profile.component';
 
 @Component({
   selector: 'app-landing',
@@ -14,7 +16,8 @@ export class LandingComponent implements OnInit {
 
   constructor(
     public appComp: AppComponent,
-    public authService: AuthService
+    public authService: AuthService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +25,14 @@ export class LandingComponent implements OnInit {
 
   logout() {
     this.appComp.logout();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogProfileComponent);
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 
 }

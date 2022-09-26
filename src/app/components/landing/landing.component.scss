@@ -1,5 +1,44 @@
 mat-toolbar {
-    background-color: rgba(14,13,18);
+    background-color: rgba(14, 13, 18) !important;
     color: rgb(232, 230, 227);
     justify-content: space-between;
+
+    img {
+        width: 36px;
+        height: 36px;
+        border-radius: 4px;
+        transition: 125ms ease-in-out;
+
+        &:hover {
+            filter: brightness(120%);
+        }
+    }
+
+    mat-icon {
+        cursor: pointer;
+    }
+
+    mat-menu {
+
+        button {
+            background-color: rgb(29, 31, 32) !important;
+            color: rgb(176, 172, 167) !important;
+        }
+    }
+}
+
+
+
+.mainPage {
+    width: 100%;
+    background-color: rgb(22, 24, 25);
+
+    mat-drawer-container {
+        height: calc(100vh - 64px);
+
+        mat-drawer {
+            width: 300px;
+            background-color: rgb(20, 21, 22);
+        }
+    }
 }

@@ -1,14 +1,47 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="user$ | async as user">
+    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
     Jey's Slack-clone
     <div class="flex">
         <button mat-button [matMenuTriggerFor]="userMenu">
-            <mat-icon>account_circle</mat-icon>
-            User
-            <mat-icon>expand_more</mat-icon>
+            <img [src]="user.photoURL ?? 'assets/img/avatar.webp'">
         </button>
     </div>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+        <button mat-button (click)="openDialog()">Edit profile</button>
+    </mat-menu>
 </mat-toolbar>
 
-<mat-menu #userMenu="matMenu">
-    <button mat-menu-item (click)="logout()">Logout</button>
-</mat-menu>
+<div class="mainPage flex">
+
+    <mat-drawer-container autosize>
+        <mat-drawer #drawer [opened]="true" mode="side">
+            <p>Auto-resizing sidenav</p>
+        </mat-drawer>
+
+        <div class="example-sidenav-content">
+
+
+
+        </div>
+
+
+
+
+    </mat-drawer-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { User } from 'src/app/models/user-profile';
 import { AuthService } from 'src/app/service/auth.service';
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -26,13 +27,15 @@ export function passwordsMatchValidator(): ValidatorFn {
 })
 export class SignUpComponent implements OnInit {
 
+  user = new User();
+
   signUpForm = new FormGroup({
-    name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required)
   }, { validators: passwordsMatchValidator() })
 
+  
 
   constructor(
     private authService: AuthService,
@@ -41,10 +44,6 @@ export class SignUpComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
-
-  get name() {
-    return this.signUpForm.get('name');
   }
 
   get email() {
@@ -61,8 +60,8 @@ export class SignUpComponent implements OnInit {
 
   submit() {
     if (!this.signUpForm.valid) return;
-    const { name, email, password } = this.signUpForm.value;
-    this.authService.signUp(name, email, password).pipe(
+    const {email, password } = this.signUpForm.value;
+    this.authService.signUp(email, password).pipe(
       this.toast.observe({
         success: 'Congrats! You are signed up',
         loading: 'Signing in...',
